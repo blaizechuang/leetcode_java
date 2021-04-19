@@ -4,7 +4,7 @@ import android.util.Log;
 
 import java.util.HashMap;
 
-public class two_sum_1 extends base_solution{
+public class two_sum_1 implements base_solution{
     public void execute() {
         int[] source = {2,7,11,15};
         int target = 22;
@@ -13,6 +13,7 @@ public class two_sum_1 extends base_solution{
             Log.d("--", result[i] + " ");
         }
     }
+
     public int[] function(int[] numbers, int target) {
         int[] result = new int[2];  //initializing array
         HashMap<Integer, Integer> map = new HashMap();
