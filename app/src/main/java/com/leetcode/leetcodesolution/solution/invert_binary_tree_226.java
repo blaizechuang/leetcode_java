@@ -13,11 +13,11 @@ public class invert_binary_tree_226 extends logger implements base_solution{
             return null;
         }
 
-        invertTree(root.left);
-        invertTree(root.right);
+        TreeNode left = invertTree(root.left);
+        TreeNode right = invertTree(root.right);
 
-        TreeNode tmp = root.left;
-        root.left = root.right;
+        TreeNode tmp = left;
+        root.left = right;
         root.right = tmp;
 
         return root;
