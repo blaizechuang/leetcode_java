@@ -3,7 +3,7 @@ package com.leetcode.leetcodesolution.solution.medium;
 import com.leetcode.leetcodesolution.solution.base_solution;
 import com.leetcode.leetcodesolution.solution.logger;
 
-public class Fruit_Into_Baskets_907 extends logger implements base_solution {
+public class Fruit_Into_Baskets_904 extends logger implements base_solution {
     @Override
     public void execute() {
         //

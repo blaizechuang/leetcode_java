@@ -1,6 +1,6 @@
 package com.leetcode.leetcodesolution;
 
-public class Guide {
+public class ReadMe {
     /**
      * Easy (9)
      */
