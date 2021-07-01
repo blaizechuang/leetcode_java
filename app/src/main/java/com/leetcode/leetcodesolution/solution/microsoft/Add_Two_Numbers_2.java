@@ -10,14 +10,22 @@ public class Add_Two_Numbers_2 extends logger implements base_solution {
     @Override
     public void execute() {
         ListNode l1 = new ListNode(2);
+        ListNode ptr1 = l1;
         l1.next = new ListNode(4);
+        l1 = l1.next;
         l1.next = new ListNode(3);
 
         ListNode l2 = new ListNode(5);
+        ListNode ptr2 = l2;
         l2.next = new ListNode(6);
+        l2 = l2.next;
         l2.next = new ListNode(4);
-        ListNode l3 = addTwoNumbers(l1, l2);
-        Log.d("--", "l3 val: " + l3.val);
+
+        ListNode l3 = addTwoNumbers(ptr1, ptr2);
+        while (l3 != null) {
+            Log.d("--", "node is : " + l3.val);
+            l3 = l3.next;
+        }
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
