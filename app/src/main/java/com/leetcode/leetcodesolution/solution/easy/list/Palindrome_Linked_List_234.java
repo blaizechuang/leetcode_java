@@ -6,12 +6,16 @@ import com.leetcode.leetcodesolution.solution.base_solution;
 import com.leetcode.leetcodesolution.solution.basic.ListNode;
 import com.leetcode.leetcodesolution.solution.logger;
 
+import java.util.Stack;
+
 public class Palindrome_Linked_List_234 extends logger implements base_solution {
     @Override
     public void execute() {
-        ListNode tmp = new ListNode(4);
+        ListNode tmp = new ListNode(1);
         ListNode head = tmp;
         tmp.next = new ListNode(2);
+        tmp = tmp.next;
+        tmp.next = new ListNode(3);
         tmp = tmp.next;
         tmp.next = new ListNode(2);
         tmp = tmp.next;
@@ -23,35 +27,32 @@ public class Palindrome_Linked_List_234 extends logger implements base_solution 
         Log.d("", "result: " + isPalindrome);
     }
 
-    public boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null) return true;
+    public static boolean isPalindrome(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
-        while(fast != null && fast.next != null) {
+
+        Stack<Integer> stack = new Stack<Integer>();
+
+        while (fast != null && fast.next != null) {
+            stack.push(slow.val);
+            slow = slow.next;
             fast = fast.next.next;
+        }
+
+        /* Has odd number of elements, so skip the middle */
+        if (fast != null) {
             slow = slow.next;
         }
+        Log.d("", "Now slow: " + slow.val);
 
-        ListNode reverse = reverseList(slow);
-        while (reverse != null) {
-            if (reverse.val != head.val) {
+        while (slow != null) {
+            int top = stack.pop().intValue();
+            Log.d("", "top: " + top);
+            if (top != slow.val) {
                 return false;
             }
-            reverse = reverse.next;
-            head = head.next;
+            slow = slow.next;
         }
         return true;
-    }
-
-    private ListNode reverseList(ListNode head) {
-        ListNode tail = null;
-        while (head != null) {
-            ListNode next = head.next;
-            head.next = tail;
-            tail = head;
-            head = next;
-        }
-
-        return tail;
     }
 }
