@@ -74,7 +74,7 @@ public class Fruit_Into_Baskets_904 extends logger implements base_solution {
             if (fruit == second_last_fruit || fruit == last_fruit) {
                 current_max ++;
             } else {
-                current_max = last_fruit_count + 1;
+                current_max = last_fruit_count + 1; //  加上最一開始的自己
             }
 
             if (fruit == last_fruit) {
