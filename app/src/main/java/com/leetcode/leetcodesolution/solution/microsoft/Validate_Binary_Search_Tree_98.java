@@ -23,12 +23,19 @@ public class Validate_Binary_Search_Tree_98 extends logger implements base_solut
     public boolean isValidBST(TreeNode root) {
         if (root == null) return true;
         if (!isValidBST(root.left)) return false;
-        if (last != null && last.val >= root.val) return false;
+        if (last != null && root.val <= last.val) return false;
         last = root;
+        Log.d("", "current last is " + root.val);
         return isValidBST(root.right);
     }
 
     @Override
     public void execute() {
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+        boolean result = isValidBST(root);
+        Log.d("", "is valid: " + result);
+
     }
 }
