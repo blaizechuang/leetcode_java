@@ -12,4 +12,8 @@ public class logger {
         str += "}";
         Log.d("--", "List: " + str);
     }
+
+    public void print(Object c){
+        Log.d("", "" + c.toString());
+    }
 }
