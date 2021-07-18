@@ -57,10 +57,10 @@ public class Unique_Email_Addresses_929 {
 
         }
 
-        return set.size();
+        return set.size();  // Set 好方便, 直接 size() 取內容
     }
 
-
+    // 不需要把 sb 傳進去
     private String helper(String e, StringBuilder sb) {
         int idx = 0;
         int ix = e.indexOf('@');
