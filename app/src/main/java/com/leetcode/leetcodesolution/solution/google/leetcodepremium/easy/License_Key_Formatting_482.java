@@ -1,4 +1,4 @@
-package com.leetcode.leetcodesolution.solution.google.leetcodepremium;
+package com.leetcode.leetcodesolution.solution.google.leetcodepremium.easy;
 
 import com.leetcode.leetcodesolution.solution.base_solution;
 import com.leetcode.leetcodesolution.solution.logger;

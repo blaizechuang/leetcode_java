@@ -1,4 +1,4 @@
-package com.leetcode.leetcodesolution.solution.google.leetcodepremium;
+package com.leetcode.leetcodesolution.solution.google.leetcodepremium.easy;
 
 import java.util.HashMap;
 import java.util.HashSet;
