@@ -13,7 +13,7 @@ public class Merge_k_Sorted_Lists_23 extends logger implements base_solution {
     /**
      * 思路：看到這種 merge 的, 就是把他切成兩塊, 然後去 merge
      * 1. 設定 start = 0, end = length-1
-     * 2. 實作 recursive partition
+     * 2. 實作 recursive partition (遞迴也要注意 左邊 < 右邊)
      * 3. 實作 merge
      */
     public ListNode mergeKLists(ListNode[] lists) {
