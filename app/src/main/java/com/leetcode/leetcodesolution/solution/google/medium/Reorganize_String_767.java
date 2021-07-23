@@ -11,6 +11,10 @@ public class Reorganize_String_767 extends logger implements base_solution {
         print(result);
     }
 
+    /**
+     * Time O(N): fill hash[] + find the letter + write results into char array
+     * Space O(N + 26): result + hash[]
+     */
     public String reorganizeString(String s) {
         // 先把字串放到一個 int []
         int[] letter = new int[26];
