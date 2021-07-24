@@ -22,16 +22,16 @@ public class Meeting_Rooms_II_253 {
         // Empty array?
         if (intervals.length == 0) return 0;
 
-        PriorityQueue<Integer> allocator = new PriorityQueue();
+        PriorityQueue<Integer> room = new PriorityQueue();
         Arrays.sort(intervals, (a, b)->Integer.compare(a[0], b[0]));
-        allocator.add(intervals[0][1]);
+        room.add(intervals[0][1]);
         for (int i = 1; i < intervals.length; i++) {
-            if (intervals[i][0] >= allocator.peek()) {
-                allocator.poll();
+            if (intervals[i][0] >= room.peek()) {
+                room.poll();
             }
-            allocator.add(intervals[i][1]);
+            room.add(intervals[i][1]);
         }
 
-        return allocator.size();
+        return room.size();
     }
 }
