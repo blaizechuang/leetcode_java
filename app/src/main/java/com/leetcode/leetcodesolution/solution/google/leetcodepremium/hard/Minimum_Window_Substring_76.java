@@ -6,6 +6,7 @@ import com.leetcode.leetcodesolution.solution.logger;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class Minimum_Window_Substring_76 extends logger implements base_solution {
     @Override
@@ -16,52 +17,56 @@ public class Minimum_Window_Substring_76 extends logger implements base_solution
         print("result: " + result);
     }
 
+    /**
+     * 這題思路是參考 這個高手的 slider window template
+     * https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/discuss/49708/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem.
+     * 主要當 count == 0 時候, 就要去計算目前的 len 是否符合
+     * 要注意的是檢查 len 的時候，不要再去減 1, 因為我們要去取得 substring, 是 0-based
+     */
     public String minWindow(String s, String t) {
-        char[] s_array = s.toCharArray();
-        char[] t_array = t.toCharArray();
-        int[] map = new int[256];
-        int end = 0;
-        int start = 0;
-        int min_length = Integer.MAX_VALUE;
-        for(int i = 0; i < t_array.length; i++)
-            map[t_array[i]] ++;
-        int count = t_array.length;
-        print("-- count: " + count);
-        int min_start = 0;
-        while(end < s_array.length)
-        {
-            print("-- now end: " + end + ", now char: " + s_array[end] + ", map[s_array[end]]: " + map[s_array[end]]);
-            if(map[s_array[end]] > 0)
-            {
-                count--;
-                print("-- count - 1, now count = " + count);
+        if(t.length()> s.length()) return "";
+        Map<Character, Integer> map = new HashMap<>();
+        for(char c : t.toCharArray()){
+            map.put(c, map.getOrDefault(c,0) + 1);
+        }
+        int counter = map.size();
+
+        int begin = 0, end = 0;
+        int head = 0;
+        int len = Integer.MAX_VALUE;
+
+        while(end < s.length()){
+            print("end: " + end);
+            char c = s.charAt(end);
+            print("c: " + c);
+            if( map.containsKey(c) ){
+                print("map has " + c + ", descrease 1");
+                map.put(c, map.get(c)-1);
+                if(map.get(c) == 0) {print("" + c + "'s value is 0, count -- "); counter--;}
             }
-            map[s_array[end]] --;
-            print("-- map["+s_array[end]+"] = " + map[s_array[end]] + ", current count: " + count);
-            while(count == 0)
-            {
-                if((end - start + 1) < min_length)
-                {
-                    min_length = end - start + 1;
-                    min_start = start;
-                    print("min_length: " + min_length + ", min_start: " + min_start);
+            end++;
+
+            while(counter == 0){
+                print("count == 0");
+                char tempc = s.charAt(begin);
+                print("tempc = " + tempc);
+                if(map.containsKey(tempc)){
+                    map.put(tempc, map.get(tempc) + 1);
+                    print("map has " + tempc + " increase 1");
+                    if(map.get(tempc) > 0){
+                        print("" + tempc + "'s value " + map.get(tempc) + " > 0, count ++");
+                        counter++;
+                    }
                 }
-                map[s_array[start]] ++;
-                print("-- map[" + s_array[start] + "]++ -> " + map[s_array[start]]);
-                if(map[s_array[start]] > 0){
-                    count ++;
-                    print("count++ ->" + count);
+                if(end-begin < len){
+                    len = end - begin;
+                    head = begin;
                 }
-                start++;
-                print("start++ -> " + start);
+                begin++;
             }
-            end ++;
-            print("end++ -> " + end);
 
         }
-        if( min_start+min_length > s_array.length)
-            return "";
-
-        return s.substring(min_start, min_start+min_length);
+        if(len == Integer.MAX_VALUE) return "";
+        return s.substring(head, head+len);
     }
 }
