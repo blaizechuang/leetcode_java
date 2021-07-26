@@ -28,6 +28,10 @@ public class Add_Two_Numbers_2 extends logger implements base_solution {
         }
     }
 
+    /**
+     * Time complexity: O(max(m,n));
+     * Space complexity: O(max(m, n)), 長度最長為 max(m, n) + 1
+     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode l3 = new ListNode(0);
         ListNode result = l3;
