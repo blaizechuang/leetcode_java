@@ -11,10 +11,55 @@ import java.util.Map;
 public class Minimum_Window_Substring_76 extends logger implements base_solution {
     @Override
     public void execute() {
-        String input = "ADOBECODEBANC";
-        String target = "ABC";
-        String result = minWindow(input, target);
+//        String input = "ADOBECODEBANC";
+//        String target = "ABC";
+        String input = "aa";
+        String target = "aa";
+        String result = myFun(input, target);
         print("result: " + result);
+    }
+
+    /**
+     * 這次把 count 改成 t.length() 去實作好像更直覺一點
+     */
+    public String myFun(String s, String t) {
+        HashMap<Character, Integer> map = new HashMap();
+        for (int i = 0; i < t.length(); i++) {
+            map.put(t.charAt(i), map.getOrDefault(t.charAt(i), 0) + 1);
+        }
+
+        int start = 0, end = 0, len = Integer.MAX_VALUE, count = t.length(), begin = 0;
+
+        while(end < s.length()) {
+            char c = s.charAt(end);
+            print("now char: " + c);
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) - 1);
+
+                if (map.get(c) >= 0) {
+                    count--;
+                }
+            }
+            end++;
+
+            while (count == 0) {
+                System.out.println("-- end: " + end + ", start: " + start + ", len: " + len);
+                if (end-start < len) {
+                    len = end-start;
+                    begin = start;
+                }
+                if (map.containsKey(s.charAt(start))) {
+                    map.put(s.charAt(start), map.get(s.charAt(start)) + 1);
+                    print("Handle char: " + s.charAt(start));
+                    if (map.get(s.charAt(start)) > 0) {
+                        count++;
+                    }
+                }
+                start++;
+            }
+        }
+        if (len == Integer.MAX_VALUE) return "";
+        return s.substring(begin, begin+len);
     }
 
     /**
