@@ -3,6 +3,27 @@ package com.leetcode.leetcodesolution.solution.google.leetcodepremium.medium;
 import com.leetcode.leetcodesolution.solution.basic.ListNode;
 
 public class Remove_Nth_Node_From_End_of_List_19 {
+
+    /**
+     * fast slow pattern, 想出這招的人太強了
+     * Time complexity: O(n)
+     */
+    public static ListNode removeNthFromEnd_twoPointer(ListNode head, int n) {
+        ListNode headNode = new ListNode(9527);
+        headNode.next = head;
+        ListNode fastNode = headNode;
+        ListNode slowNode = headNode;
+        while(fastNode.next != null){
+            if(n <= 0)
+                slowNode = slowNode.next;
+            fastNode = fastNode.next;
+            n--;
+        }
+        if(slowNode.next != null)
+            slowNode.next = slowNode.next.next;
+        return headNode.next;
+    }
+
     public ListNode removeNthFromEnd(ListNode head, int n) {
         // 倒數第 n 個要 remove
         int nodes = 0;
