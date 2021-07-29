@@ -22,6 +22,10 @@ public class Permutations_II_47 extends logger implements base_solution {
         return list;
     }
 
+    /**
+     *
+     * 我還是無法理解怎麼想到 !used[i-1], 這個除非一直去試不然試不出來
+     */
     private void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums, boolean[] used) {
         print("================ begin ===============");
         if (tempList.size() == nums.length) {
