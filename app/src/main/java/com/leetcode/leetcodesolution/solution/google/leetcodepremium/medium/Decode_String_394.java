@@ -13,6 +13,12 @@ public class Decode_String_394 extends logger implements base_solution {
         print("result: " + result);
     }
 
+    /**
+     * 3[a]2[bc]
+     * Time Complexity: O(maxK x n), maxK = 3, n = 2 (a, bc)
+     *
+     * Space Complexity: O(m + n), m: 26 個英文字, n: 10 個數字
+     */
     public String decodeString(String s) {
         Stack<Integer> numberStack = new Stack();
         Stack<String> stringStack = new Stack();
