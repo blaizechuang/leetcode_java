@@ -1,59 +1,45 @@
 package com.leetcode.leetcodesolution.solution.google.leetcodepremium.medium;
 
 class Find_First_and_Last_Position_of_Element_in_Sorted_Array_34 {
-
-    public int[] searchRange_bs(int[] nums, int target) {
-
-        int firstOccurrence = this.findBound(nums, target, true);
-
-        if (firstOccurrence == -1) {
-            return new int[]{-1, -1};
+    
+    /**
+     * 做兩次的 binary search, 主要就是在找到 middle 的時候, 再繼續往下找
+     * time complexity: O(logN);
+     * Space complexity: O(1);
+     */
+    public int[] searchRange_blaize(int[] nums, int target) {
+        if (nums == null || nums.length == 0) return new int[]{-1, -1};
+        int start = bs(nums, 0, nums.length - 1,target, true);
+        if (start == -1) {
+            return new int[] {-1, -1};
         }
-
-        int lastOccurrence = this.findBound(nums, target, false);
-
-        return new int[]{firstOccurrence, lastOccurrence};
+        int end = bs(nums, 0, nums.length - 1, target, false);
+        return new int[] {start, end};
     }
 
-    private int findBound(int[] nums, int target, boolean isFirst) {
-        int N = nums.length;
-        int begin = 0, end = N - 1;
-
-        while (begin <= end) {
-
-            int mid = (begin + end) / 2;
-
-            if (nums[mid] == target) {
-
-                if (isFirst) {
-
-                    // This means we found our lower bound.
-                    if (mid == begin || nums[mid - 1] != target) {
-                        return mid;
-                    }
-
-                    // Search on the left side for the bound.
-                    end = mid - 1;
-
+    private int bs(int[] nums, int start, int end, int target, boolean findFirst) {
+        if (start > end) return -1;
+        int middle = start + (end-start)/2;
+        if (nums[middle] == target) {
+            if (findFirst) {
+                if (middle == 0 || nums[middle] != nums[middle-1]) {
+                    return middle;
                 } else {
-
-                    // This means we found our upper bound.
-                    if (mid == end || nums[mid + 1] != target) {
-                        return mid;
-                    }
-
-                    // Search on the right side for the bound.
-                    begin = mid + 1;
+                    end = middle-1;
                 }
-
-            } else if (nums[mid] > target) {
-                end = mid - 1;
             } else {
-                begin = mid + 1;
+                if (middle == nums.length-1 || nums[middle] != nums[middle+1]) {
+                    return middle;
+                } else {
+                    start = middle+1;
+                }
             }
+            return bs(nums, start, end, target, findFirst);
+        } else if (nums[middle] < target) {
+            return bs(nums, middle+1, end, target, findFirst);
+        } else {
+            return bs(nums, start, middle-1, target, findFirst);
         }
-
-        return -1;
     }
 
     /**
