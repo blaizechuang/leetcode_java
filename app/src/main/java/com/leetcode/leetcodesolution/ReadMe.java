@@ -39,10 +39,11 @@ public class ReadMe {
     /**
      * Hard (4)
      */
-    // 4. Median of Two Sorted Arrays
     // 10. Regular Expression Matching
     // 23. Merge k Sorted Lists
     // 42. Trapping Rain Water
+    // 近六個月常考
+    // 4. Median of Two Sorted Arrays
 
 
     /**

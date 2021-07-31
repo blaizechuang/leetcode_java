@@ -1,4 +1,4 @@
-package com.leetcode.leetcodesolution.solution.google;
+package com.leetcode.leetcodesolution.solution.google.leetcodepremium.hard;
 
 import android.util.Log;
 
@@ -14,6 +14,10 @@ public class Median_of_Two_Sorted_Arrays_4 extends logger implements base_soluti
         Log.d("--", "result: " + result);
     }
 
+    /**
+     * 自己寫的
+     * time complexity: O(m+n), 不是題目要的 O(log(m+n))
+     */
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         // 第一次寫難的寫出來 喔耶
         int length1 = nums1.length;

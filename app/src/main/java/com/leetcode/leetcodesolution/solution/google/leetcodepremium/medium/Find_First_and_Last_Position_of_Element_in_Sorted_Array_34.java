@@ -1,7 +1,7 @@
 package com.leetcode.leetcodesolution.solution.google.leetcodepremium.medium;
 
 class Find_First_and_Last_Position_of_Element_in_Sorted_Array_34 {
-    
+
     /**
      * 做兩次的 binary search, 主要就是在找到 middle 的時候, 再繼續往下找
      * time complexity: O(logN);
