@@ -33,7 +33,7 @@ public class Combination_Sum_II_40 extends logger implements base_solution {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> list = new ArrayList();
         Arrays.sort(candidates);
-        printIntList(candidates);
+        printIntList("candidates: ", candidates);
         dfs(candidates, list, new ArrayList(), target, 0);
         return list;
     }

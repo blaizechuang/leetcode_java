@@ -3,14 +3,14 @@ package com.leetcode.leetcodesolution.solution;
 import android.util.Log;
 
 public class logger {
-    public void printIntList(int[] list) {
+    public void printIntList(String tag, int[] list) {
         String str = "";
         str += "{ ";
         for (int i = 0; i < list.length; i++) {
             str += list[i] + " ";
         }
         str += "}";
-        Log.d("--", "List: " + str);
+        Log.d(tag, "List: " + str);
     }
 
     public void print(Object c){

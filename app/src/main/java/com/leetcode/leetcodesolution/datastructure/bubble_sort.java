@@ -10,10 +10,8 @@ public class bubble_sort extends logger implements base_solution {
     public void execute() {
         Log.d("--", "[Bubble Sort] source");
         int[] list = {36,30,58,75,88,26,25,12,98,66, -2};
-        printIntList(list);
         bubbleSort(list);
         Log.d("--", "[Bubble Sort] sorted");
-        printIntList(list);
     }
 
     private void bubbleSort(int[] list) {
@@ -28,7 +26,6 @@ public class bubble_sort extends logger implements base_solution {
                     list[i+1] = tmp;
                 }
             }
-            printIntList(list);
         }
         Log.d("--", "Done sorting...");
     }

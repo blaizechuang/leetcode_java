@@ -11,7 +11,7 @@ public class Two_Sum_1 extends logger implements base_solution {
         int[] input = {2,7,11,15};
         int target = 22;
         int[] result = twoSum(input, target);
-        printIntList(result);
+        printIntList("result: ", result);
     }
 
     public int[] twoSum(int[] numbers, int target) {

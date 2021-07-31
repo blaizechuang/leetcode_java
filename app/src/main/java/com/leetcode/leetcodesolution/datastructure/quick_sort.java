@@ -10,10 +10,8 @@ public class quick_sort extends logger implements base_solution {
     public void execute() {
         int[] list = {24,12,64,92,77,58,55,30,89,28};
         Log.d("--", "Quick sort soruce: ");
-        printIntList(list);
         quickSort(list, 0, list.length - 1);
         Log.d("--", "Quick sort sorted: ");
-        printIntList(list);
     }
     private int partition(int[] list, int leftIndex, int rightIndex) {
         Log.d("--", "Partiton: leftIndex: " + leftIndex + ", rightIndex: " + rightIndex);
@@ -32,7 +30,6 @@ public class quick_sort extends logger implements base_solution {
                 list[rightIndex] = tmp;
             }
         }
-        printIntList(list);
         return leftIndex;
     }
 

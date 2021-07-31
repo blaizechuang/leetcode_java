@@ -8,7 +8,7 @@ public class Next_Permutation_31 extends logger implements base_solution {
     public void execute() {
         int[] input = {1,5,1};
         nextPermutation(input);
-        printIntList(input);
+        printIntList("result", input);
     }
 
     /**
@@ -34,7 +34,7 @@ public class Next_Permutation_31 extends logger implements base_solution {
             print("-- last: " + last);
             swap(nums, left, last);
         }
-        printIntList(nums);
+        printIntList("nums: ", nums);
         reverse(nums, left+1);
     }
 

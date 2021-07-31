@@ -41,7 +41,7 @@ public class Median_of_Two_Sorted_Arrays_4 extends logger implements base_soluti
             index++;
         }
 
-        printIntList(result);
+        printIntList("result: ", result);
 
         int startIndex = result.length/2;
         Log.d("--", "startIndex: " + startIndex);

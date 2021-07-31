@@ -21,7 +21,7 @@ public class Reorganize_String_767 extends logger implements base_solution {
         for (int i = 0; i < s.length(); i++) {
             letter[s.charAt(i) - 'a'] ++;
         }
-        printIntList(letter);
+        printIntList("letter: ", letter);
 
         // 找到最大的
         int max = 0;

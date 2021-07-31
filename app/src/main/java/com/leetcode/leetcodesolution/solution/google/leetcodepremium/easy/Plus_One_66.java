@@ -8,7 +8,7 @@ public class Plus_One_66 extends logger implements base_solution {
     public void execute() {
         int[] input = {9};
         int[] result = plusOne(input);
-        printIntList(result);
+        printIntList("result", result);
     }
 
     /**

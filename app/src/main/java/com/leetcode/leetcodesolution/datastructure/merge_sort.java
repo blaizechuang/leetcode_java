@@ -10,10 +10,8 @@ public class merge_sort extends logger implements base_solution {
     public void execute() {
         int[] source = { 5, 1, 6, 2, 3, 4 };
         Log.d("--", "Merge sort source; ");
-        printIntList(source);
         int[] result = mergeSort(source, source.length);
         Log.d("--", "Merge sort result: ");
-        printIntList(result);
     }
 
     private int[] mergeSort(int[] list, int n) {
