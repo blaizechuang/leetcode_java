@@ -1,4 +1,4 @@
-package com.leetcode.leetcodesolution.solution.google.medium;
+package com.leetcode.leetcodesolution.solution.google.medium.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;

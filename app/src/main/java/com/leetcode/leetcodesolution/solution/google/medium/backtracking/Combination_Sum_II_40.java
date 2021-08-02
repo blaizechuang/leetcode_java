@@ -1,4 +1,4 @@
-package com.leetcode.leetcodesolution.solution.medium;
+package com.leetcode.leetcodesolution.solution.google.medium.backtracking;
 
 import com.leetcode.leetcodesolution.solution.base_solution;
 import com.leetcode.leetcodesolution.solution.logger;
