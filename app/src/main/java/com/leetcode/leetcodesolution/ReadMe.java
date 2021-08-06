@@ -37,6 +37,7 @@ public class ReadMe {
     // 904. Fruit Into Baskets
     // 近六個月常考
     // 951. Flip Equivalent Binary Trees
+    // 299. Bulls and Cows
 
     /**
      * Hard (4)
