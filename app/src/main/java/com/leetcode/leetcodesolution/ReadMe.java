@@ -19,6 +19,8 @@ public class ReadMe {
     // 101. Symmetric Tree
     // 206. Reverse Linked List
     // 226. Invert Binary Tree
+    // 近六個月常考
+    // 690. Employee Importance
 
     /**
      * Medium (12)
@@ -38,6 +40,8 @@ public class ReadMe {
     // 近六個月常考
     // 951. Flip Equivalent Binary Trees
     // 299. Bulls and Cows
+    // 729. My Calendar I
+    // 253. Meeting Rooms II
 
     /**
      * Hard (4)
