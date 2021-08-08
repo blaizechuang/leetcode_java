@@ -31,6 +31,14 @@ public class Permutations_46 extends logger implements base_solution {
      * 然後去判斷 subList 決定 recursive 是不是該中斷, 把結果都塞到 global arrayList
      * 這邊另一個重點是 backtracking, 也就是檢查過的把 used[i] 設成 true,
      * 重新開始的話, 把 used[i] 設成 false
+     *
+     * 2021/08/07
+     * 好像懂了 backtracking 的機制, 重點就是把檢查放到一個 function, 一開始先檢查條件是不是符合
+     * 是的話就存起來, 記得要用 list copy
+     * 然後就是一個一個找, 記得把現在的項目 flag 設成 true 再去 recursive call dfs
+     * 然後把目前項目拿掉, flag 設成 false
+     * time complexity: O(N x N!)
+     * space complexity: O(N!)
      */
     public List<List<Integer>> permute(int[] nums) {
 
