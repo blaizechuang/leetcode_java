@@ -19,6 +19,7 @@ public class Remove_Nth_Node_From_End_of_List_19 {
             fastNode = fastNode.next;
             n--;
         }
+        // 這個 NPE 的判斷要記得
         if(slowNode.next != null)
             slowNode.next = slowNode.next.next;
         return headNode.next;
