@@ -27,32 +27,51 @@ public class Palindrome_Linked_List_234 extends logger implements base_solution 
         Log.d("", "result: " + isPalindrome);
     }
 
-    public static boolean isPalindrome(ListNode head) {
-        ListNode fast = head;
-        ListNode slow = head;
-
-        Stack<Integer> stack = new Stack<Integer>();
-
+    /**
+     * time complexity: O(N)
+     * space complexity: O(1)
+     * 思路：先找出中間點, 中間點的起始位置要判斷是奇還是偶, 如果是 even list, slow = slow.next
+     *
+     */
+    public boolean isPalindrome(ListNode head) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode fast = dummy;
+        ListNode slow = dummy;
         while (fast != null && fast.next != null) {
-            stack.push(slow.val);
             slow = slow.next;
             fast = fast.next.next;
         }
 
-        /* Has odd number of elements, so skip the middle */
+        // 表示目前的 list 是 even list, 所以 middle 要再往下一個, 這行是這個答案的重點
         if (fast != null) {
             slow = slow.next;
         }
-        Log.d("", "Now slow: " + slow.val);
 
-        while (slow != null) {
-            int top = stack.pop().intValue();
-            Log.d("", "top: " + top);
-            if (top != slow.val) {
+        ListNode revert = revert(slow);
+        fast = head;
+        while(revert != null) {
+            if (revert.val != fast.val) {
                 return false;
             }
-            slow = slow.next;
+            revert = revert.next;
+            fast = fast.next;
         }
+
         return true;
+    }
+
+    // 字串反轉老是會卡住, 記得就是先把 prev 先 new 出來指向 null
+    // 然後再一個一個往後找
+    private ListNode revert(ListNode node) {
+        ListNode prev = null;
+        while (node != null) {
+            ListNode next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+
+        return prev;
     }
 }
