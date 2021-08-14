@@ -11,6 +11,12 @@ public class Longest_Palindromic_Substring_5 extends logger implements base_solu
         print("-- result: " + result);
     }
 
+    /**
+     * time complexity: O(N^2)
+     * space complexity: O(1)
+     * 要注意的地方是更新 start, end 的判斷, len - 1 這邊要特別注意
+     * substring 的部分, 要記得 end + 1, 不然會少拿一個
+     */
     public String longestPalindrome(String s) {
         int start = 0, end = 0;
         int len = 0;

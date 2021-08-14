@@ -13,6 +13,8 @@ public class Maximum_Product_Subarray_152 extends logger implements base_solutio
     }
 
     /**
+     * 2021/08/14, 這時候看覺得其實也沒那麼複雜
+     *
      * 另一種思路, 前面 x 後面, 取最大最小值, 繼續往後乘
      * 這個是 leetcode 的解法, 我覺得沒有前一個直覺
      * time complexity: O(N)

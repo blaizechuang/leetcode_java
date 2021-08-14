@@ -1,6 +1,22 @@
 package com.leetcode.leetcodesolution.solution.google.leetcodepremium.easy.dp;
 
 class Maximum_Subarray_53 {
+
+    /**
+     * 我自己的方法
+     * time complexity: O(N)
+     * space complexity: O(1)
+     */
+    public int maxSubArray_me(int[] nums) {
+        int max = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i-1] > 0 && nums[i] + nums[i-1] > 0) {
+                nums[i] = nums[i] + nums[i-1];
+            }
+            max = Math.max(max, nums[i]);
+        }
+        return max;
+    }
     /**
      *
      * time complexity: O(n)
