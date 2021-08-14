@@ -18,7 +18,7 @@ public class Longest_String_Chain_1048 extends logger implements base_solution {
     /**
      * N: words array 的個數
      * K: word 最長的數值
-     * time complexity: O(N x K^2)
+     * time complexity: O(N x K^2), 因為每個 word 都要查找少一個 char 的所有可能, 所以 K^2
      * space complexity: O(N)
      */
     public int longestStrChain(String[] words) {
@@ -29,7 +29,11 @@ public class Longest_String_Chain_1048 extends logger implements base_solution {
             int subMax = 0;
             for (int i = 0; i < word.length(); i++) {
                 StringBuffer sb = new StringBuffer(word).deleteCharAt(i);
-                subMax = Math.max(subMax, dp.getOrDefault(sb.toString(), 0) + 1);
+//                subMax = Math.max(subMax, dp.getOrDefault(sb.toString(), 0) + 1);
+                int count = dp.getOrDefault(sb.toString(), 0) + 1;
+                if (count > subMax) {
+                    subMax = count;
+                }
             }
             dp.put(word, subMax);
             result = Math.max(result, dp.get(word));
