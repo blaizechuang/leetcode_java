@@ -7,6 +7,7 @@ public class Remove_Nth_Node_From_End_of_List_19 {
     /**
      * fast slow pattern, 想出這招的人太強了
      * Time complexity: O(n)
+     * space complexity: O(1)
      */
     public static ListNode removeNthFromEnd_twoPointer(ListNode head, int n) {
         ListNode headNode = new ListNode(9527);
