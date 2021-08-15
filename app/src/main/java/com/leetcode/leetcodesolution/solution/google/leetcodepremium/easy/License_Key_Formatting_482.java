@@ -10,12 +10,15 @@ class License_Key_Formatting_482 extends logger implements base_solution {
     }
 
     /**
+     * 這題的陷阱是, 只有第一個欄位的字串長可以 < k, 所以只能用 revert 了
      * 不要用 insert, 用 append, 然後再用 builder.reverse() 去反轉字串
-     * 另外不要用 string.toUpperCase(), 因為會比較慢
-     * 改用 Character.toUpperCase();
+     * 另外不要用 string.toUpperCase(), 因為會比較慢, 原因是他還會需要去考慮 language code,
+     * 改用 Character.toUpperCase(); 因為他只會去考慮 ascii code
      */
     public String licenseKeyFormatting_good(String s, int k) {
         StringBuilder builder = new StringBuilder();
+        String str = "";
+        str.toUpperCase();
         int subLength = 0;
         for (int i = s.length()-1; i>=0; i--) {
             char c = s.charAt(i);

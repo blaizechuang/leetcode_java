@@ -51,7 +51,7 @@ public class Multiply_Strings_43 extends logger implements base_solution {
      * 另外 ASCII 的數字要轉成 int 只需要去 - '0' 就可以了
      *
      * test case:
-     * 1. x 0 <-- 在寫的當下沒有想到, 雖然後面的結果是正確的
+     * 1. 其中一個是 0 <-- 在寫的當下沒有想到, 雖然後面的結果是正確的
      * runtime: 3 ms
      *
      */
@@ -66,7 +66,7 @@ public class Multiply_Strings_43 extends logger implements base_solution {
                 print("-- i: " + i + ", j: " + j + ", mul: " + mul);
                 int p1 = i + j, p2 = i + j + 1;
                 print("-- p1: " + p1 + ", p2: " + p2);
-                int sum = mul + pos[p2];
+                int sum = mul + pos[p2];    // 加上前一組的進位, 因為這次的 j 是 ++ 過的, 所以要拿上一個, 有點迂迴的邏輯
                 print("-- pos[" + p2 + "] = " + pos[p2] + ",sum: " + sum);
 
                 pos[p1] += sum / 10;

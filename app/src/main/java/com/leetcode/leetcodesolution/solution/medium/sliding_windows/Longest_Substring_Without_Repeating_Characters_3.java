@@ -16,6 +16,8 @@ public class Longest_Substring_Without_Repeating_Characters_3 extends logger imp
     }
 
     /**
+     * time complexity: O(N)
+     * space complexituy: O(m), m is the char set of map
      * runtime: 5ms
      */
     public int lengthOfLongestSubstring_better(String s) {

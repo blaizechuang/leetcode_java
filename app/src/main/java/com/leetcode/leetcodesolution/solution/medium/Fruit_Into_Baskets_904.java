@@ -16,7 +16,8 @@ public class Fruit_Into_Baskets_904 extends logger implements base_solution {
     public void execute() {
 //        int[] input = new int[]{3,3,3,1,2,1,1,2,3,3,4};
 //        int[] input = new int[]{1,2,1};
-        int[] input = new int[]{3,3,3,1,2,1,1,2,3,3,4};
+//        int[] input = new int[]{3,3,3,1,2,1,1,2,3,3,4};
+        int[] input = new int[]{1,2,3,2,2};
 //        int[] input = new int[]{3,3,3,1,2,1,1,2,3,3,4};
         int result = totalFruit(input);
         Log.d("", "result: " + result);
@@ -37,8 +38,9 @@ public class Fruit_Into_Baskets_904 extends logger implements base_solution {
             map.put(fruits[end], end);
             if(map.size()>2){
                 int minIndex = Collections.min(map.values());
+                print("-- minIndex: " + minIndex + ", fruit: " + fruits[minIndex]);
                 map.remove(fruits[minIndex]);
-                start = minIndex + 1;
+                start = minIndex + 1;   // start 的位置更新要注意，是 minIndex 的下一個位置, 我錯在這邊
             }
             maxLength = Math.max(maxLength, end-start +1);
         }
