@@ -37,7 +37,7 @@ public class Fruit_Into_Baskets_904 extends logger implements base_solution {
         for(int end=0; end<n; end++){
             map.put(fruits[end], end);
             if(map.size()>2){
-                int minIndex = Collections.min(map.values());
+                int minIndex = Collections.min(map.values()); // 這個解法的精髓在這邊
                 print("-- minIndex: " + minIndex + ", fruit: " + fruits[minIndex]);
                 map.remove(fruits[minIndex]);
                 start = minIndex + 1;   // start 的位置更新要注意，是 minIndex 的下一個位置, 我錯在這邊

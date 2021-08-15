@@ -8,6 +8,10 @@ class Backspace_String_Compare_844 {
      * 精簡後的版本, 把 build stack 拉出去
      * time complexity: O(S + T), S: length of s, T: length of t
      * space complexity: (S + T)
+     *
+     * follow up: 可以提升 space complexity？
+     * Ans: space complexity 主要是因為用 stack, 所以不用 stack 可以提升到 O(1)
+     * 做法可以參考 build_noStack
      */
     public boolean backspaceCompare(String s, String t) {
         return build(s).equals(build(t));
@@ -26,6 +30,24 @@ class Backspace_String_Compare_844 {
         }
 
         return String.valueOf(stack);
+    }
+
+    private String build_noStack(String string) {
+        int count = 0;
+        StringBuilder sb = new StringBuilder();
+        for (int i = string.length()-1; i >= 0; i--) {
+            char c = string.charAt(i);
+            if (c == '#') {
+                count++;
+            } else {
+                if (count > 0) {
+                    count--;
+                } else {
+                    sb.append(c);
+                }
+            }
+        }
+        return sb.toString();
     }
 
     /**

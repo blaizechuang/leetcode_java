@@ -15,6 +15,8 @@ public class Longest_Substring_with_At_Most_Two_Distinct_Characters_159 extends 
     }
 
     /**
+     * 2021/08/15
+     * 這題跟 #904 一模一樣, 可以直接用 #904 的解法
      * 參考下面神人的答案, 邊講出自己的想法邊寫, 善用 map.getOrDefault 的方式，整個代碼精簡不少
      * 邏輯也相對簡單
      */

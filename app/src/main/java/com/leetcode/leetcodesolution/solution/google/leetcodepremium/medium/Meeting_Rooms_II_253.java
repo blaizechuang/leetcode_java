@@ -25,7 +25,7 @@ public class Meeting_Rooms_II_253 {
         PriorityQueue<Integer> room = new PriorityQueue();
         Arrays.sort(intervals, (a, b)->Integer.compare(a[0], b[0]));
         room.add(intervals[0][1]);
-        for (int i = 1; i < intervals.length; i++) {
+        for (int i = 1; i < intervals.length; i++) {    // 注意！這邊要從 1 開始，因為第 0 個已經加到 queue 裏面了
             if (intervals[i][0] >= room.peek()) {
                 room.poll();
             }
