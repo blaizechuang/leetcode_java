@@ -8,8 +8,8 @@ class Letter_Combinations_of_a_Phone_Number_17 {
 
     /**
      * time complexity: O(4^N x N), 按鍵最多有 4 個字母, digits 的長度為 N, 所以 4 ^ N, 要找 N 次
-     * Space complexity: O(N), 如果用 HashMap 去存鍵盤, 只需要 O(1), 不過我覺得長度是固定的所以
-     * 即使用 array, space complexity 應該也是 O(1)
+     * Space complexity: O(N), 如果用 HashMap 去存鍵盤, 只需要 O(1),
+     * 不過我覺得長度是固定的所以即使用 array, space complexity 應該也是 O(1) <-- 誤會了，錯！
      *
      * 思路
      * 1.	Dfs() 的一開始要去判斷條件是不是符合, 是的話就把 sb 加到 result 裏面
@@ -34,7 +34,8 @@ class Letter_Combinations_of_a_Phone_Number_17 {
             char c = letter.charAt(i);
             sb.append(c);
             dfs(digits, sb, length+1, result);
-            sb.deleteCharAt(sb.length() - 1);
+//            sb.deleteCharAt(sb.length() - 1);
+            sb.setLength(sb.length() - 1);
         }
     }
 }

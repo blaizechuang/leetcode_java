@@ -24,6 +24,8 @@ public class Combination_Sum_39 {
      * 因為數字可以重複, 所以 time complexity 會更複雜, 這題主要是要多一個 remain 的暫存
      * target - num[i] => remain
      * 然後一直從 0 開始找
+     * time complexity: O(N x target), N: candidates 裏面的元素個素, 最多處理 target 次 (實際其框會遠小於 target)
+     * space complexity: O(target)
      */
     private void dfs(int[] candidates, List<List<Integer>> list, List<Integer> subList, int target, int start) {
         if (target < 0) {

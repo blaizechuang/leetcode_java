@@ -15,6 +15,9 @@ public class Merge_k_Sorted_Lists_23 extends logger implements base_solution {
      * 1. 設定 start = 0, end = length-1
      * 2. 實作 recursive partition (遞迴也要注意 左邊 < 右邊)
      * 3. 實作 merge
+     *
+     * time complexity: O(NlogK), merge: O(N), partition: O(logK)
+     * space complexity: O(1)
      */
     public ListNode mergeKLists(ListNode[] lists) {
         return partition(lists, 0, lists.length-1);

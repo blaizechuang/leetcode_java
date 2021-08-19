@@ -15,6 +15,8 @@ public class Count_Complete_Tree_Nodes_222 extends logger implements base_soluti
      * Time complexity: O(n)
      * Space complexity: O(1) <-- 錯了, 不是這樣看的
      * Space complexity: O(d) => d = log, 樹的深度
+     *
+     * 因為是 complete binary tree, 所以可以用這種方式, 先找到左子樹的深, 在找到右子樹的深
      */
     int count = 0;
     public int countNodes＿blaize(TreeNode root) {
