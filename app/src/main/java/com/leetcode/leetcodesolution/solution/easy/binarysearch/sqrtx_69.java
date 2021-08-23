@@ -1,8 +1,10 @@
-package com.leetcode.leetcodesolution.solution.easy;
+package com.leetcode.leetcodesolution.solution.easy.binarysearch;
 
 class sqrtx_69 {
     /**
      * 不用 long 去塞, 要注意 x == 0 以及 x < 4 的情況, 另外也要注意除０的錯誤處理
+     * time complexity: O(logN), 因為 N 最大為 Integer.MAX_VALUE, 所以可以變成 O(32) => O(1)
+     * space complexity: O(1)
      */
     public int mySqrt_int(int x) {
         if (x == 0) return 0;
