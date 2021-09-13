@@ -47,7 +47,8 @@ public class Minimum_Size_Subarray_Sum_209 extends logger implements base_soluti
 
     /***
      *
-     * 這個看起來雖然有兩個回圈, 但是 i 可能會一次跳過多個,
+     * 這個看起來雖然有兩個回圈, 但是 i 可能會一次跳過多個, 這個解法的概念是 sliding window
+     * 思路是依序往右移動 end 指標, 判斷 sum >= target, 往右移動 start 指標
      * 所以整個時間比上一個 O(n) 來的快很多, 只需要 1 ms
      */
     public int minSubArrayLen(int target, int[] nums) {

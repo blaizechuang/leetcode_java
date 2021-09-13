@@ -4,6 +4,8 @@ public class Container_With_Most_Water_11 {
 
     /**
      * runtime: 3ms, memory: 52.7 MB
+     * time complexity: O(N)
+     * space complexity: O(1)
      */
     public int maxArea(int[] height) {
         if (height.length == 1) return 0;
