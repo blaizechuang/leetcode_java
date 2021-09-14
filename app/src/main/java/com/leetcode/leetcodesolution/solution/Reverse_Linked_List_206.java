@@ -70,7 +70,8 @@ public class Reverse_Linked_List_206 extends logger implements base_solution {
             pre = current;
             current = next;
         }
-        head = pre;
-        return head;
+//        head = pre;
+//        return head;
+        return pre;
     }
 }
