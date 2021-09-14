@@ -8,6 +8,10 @@ public class invert_binary_tree_226 extends logger implements base_solution{
 
     }
 
+    /**
+     * time complexity: O(N)
+     * space complexity: O(N)
+     */
     private TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return null;
@@ -16,9 +20,8 @@ public class invert_binary_tree_226 extends logger implements base_solution{
         TreeNode left = invertTree(root.left);
         TreeNode right = invertTree(root.right);
 
-        TreeNode tmp = left;
         root.left = right;
-        root.right = tmp;
+        root.right = left;
 
         return root;
     }

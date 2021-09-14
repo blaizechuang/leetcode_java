@@ -2,7 +2,7 @@ package com.leetcode.leetcodesolution.solution.easy.array;
 
 import java.util.Arrays;
 
-class Merge_sorted_array_83 {
+class Merge_sorted_array_88 {
     /***
      *
      * 1 ms, memory usage 與下面差不多
@@ -19,6 +19,8 @@ class Merge_sorted_array_83 {
     /**
      *
      * 0 ms, memory usage 39.3MB
+     * time complexity: O(n)
+     * space complexity: O(1)
      */
     public void merge2(int[] nums1, int m, int[] nums2, int n) {
         int lastIndex1 = m-1;
