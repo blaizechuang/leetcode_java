@@ -23,6 +23,16 @@ public class logger {
         Log.d(tag, "List: " + str);
     }
 
+    public void printBooleanList(String tag, boolean[] list) {
+        String str = "";
+        str += "{ ";
+        for (int i = 0; i < list.length; i++) {
+            str += list[i] + " ";
+        }
+        str += "}";
+        Log.d(tag, "List: " + str);
+    }
+
     public void printStringList(String tag, String[] list) {
         String str = "";
         str += "{ ";

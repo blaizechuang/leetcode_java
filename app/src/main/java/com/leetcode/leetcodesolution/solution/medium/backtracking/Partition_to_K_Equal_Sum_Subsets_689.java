@@ -11,12 +11,12 @@ public class Partition_to_K_Equal_Sum_Subsets_689 extends logger implements base
     public void execute() {
         int[] nums = {4,3,2,3,5,2,1};
         int k = 4;
-        boolean result = canPartitionKSubsets(nums, k);
+        boolean result = canPartitionKSubsets2(nums, k);
         print("-- result: " + result);
     }
 
     public boolean canPartitionKSubsets(int[] nums, int k) {
-        int sum = sum(nums);
+        int sum = getSum(nums);
         if (sum % k != 0) {
             return false;
         }
@@ -59,7 +59,7 @@ public class Partition_to_K_Equal_Sum_Subsets_689 extends logger implements base
         return false;
     }
 
-    public int sum(int[] nums) {
+    public int getSum(int[] nums) {
         int res = 0;
         for (int n : nums) {
             res += n;
@@ -67,45 +67,49 @@ public class Partition_to_K_Equal_Sum_Subsets_689 extends logger implements base
         return res;
     }
 
-    ///// leetcode 最佳解法
-//    public boolean canPartitionKSubsets(int[] nums, int k) {
-//        int sum = 0;
-//
-//        for (int num : nums) {
-//            sum += num;
-//        }
-//
-//        if (sum % k != 0) {
-//            return false;
-//        }
-//
-//        return dfs(nums, k, 0, sum / k, sum / k, new boolean[nums.length]);
-//    }
-//
-//    private boolean dfs(int[] nums, int k, int start, int target, int sum, boolean[] visited) {
-//        if (k == 1) {
-//            return true;
-//        }
-//
-//        for (int i = start; i < nums.length; i++) {
-//            if (!visited[i] && nums[i] <= target) {
-//                visited[i] = true;
-//
-//                if (nums[i] == target) {
-//                    if (dfs(nums, k - 1, 0, sum, sum, visited)) {
-//                        return true;
-//                    }
-//                } else {
-//                    if (dfs(nums, k, i + 1, target - nums[i], sum, visited)) {
-//                        return true;
-//                    }
-//                }
-//
-//                visited[i] = false;
-//            }
-//        }
-//
-//        return false;
-//    }
+    /**
+     * Leetcode 最速解
+     * 我覺得這個解法比較符合 backtracking, 因為有 visited 的概念
+     * timecomplexity: 
+     */
+    public boolean canPartitionKSubsets2(int[] nums, int k) {
+        int sum = getSum(nums);
+
+        if (sum % k != 0) {
+            return false;
+        }
+
+        return dfs(nums, k, 0, sum / k, sum / k, new boolean[nums.length]);
+    }
+
+    private boolean dfs(int[] nums, int k, int start, int target, int sum, boolean[] visited) {
+        print("----- dfs k: " + k + " -----");
+        if (k == 0) {
+            print("-- return true 1");
+            return true;
+        }
+
+        printIntList("-- numslst", nums);
+        printBooleanList("-- visited", visited);
+        for (int i = start; i < nums.length; i++) {
+            if (!visited[i] && nums[i] <= target) {
+                visited[i] = true;
+
+                if (nums[i] == target) {
+                    if (dfs(nums, k - 1, 0, sum, sum, visited)) {
+                        return true;
+                    }
+                } else {
+                    if (dfs(nums, k, i + 1, target - nums[i], sum, visited)) {
+                        return true;
+                    }
+                }
+
+                visited[i] = false;
+            }
+        }
+
+        return false;
+    }
 
 }
