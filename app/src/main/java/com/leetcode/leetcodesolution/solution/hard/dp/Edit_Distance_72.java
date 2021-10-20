@@ -1,8 +1,9 @@
 package com.leetcode.leetcodesolution.solution.hard.dp;
 
-import java.util.Arrays;
+import com.leetcode.leetcodesolution.solution.base_solution;
+import com.leetcode.leetcodesolution.solution.logger;
 
-class Edit_Distance_72 {
+public class Edit_Distance_72 extends logger implements base_solution {
 
     /**
      * 思路：DP 問題, 不過怎麼在一開始去拆分三個位置的最小值, 這個思路我還不知道, 不過看完解答後感覺可以理解
@@ -35,5 +36,12 @@ class Edit_Distance_72 {
         }
 
         return dp[m][n];
+    }
+
+    @Override
+    public void execute() {
+        String word1 = "horse", word2 = "ros";
+        int result = minDistance(word1, word2);
+        print("-- result: " + result);
     }
 }
